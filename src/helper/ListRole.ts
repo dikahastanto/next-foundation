@@ -3,26 +3,18 @@ interface accessProps {
   value: string,
   index: string
 }
-const adminKeuangan: accessProps = {
-  label: 'Admin Keuangan',
-  value: '5',
-  index: 'dashboardAdminKeuangan'
-}
-
-const mahasiswa: accessProps = {
-  label: 'Mahasiswa',
+const admin: accessProps = {
+  label: 'example',
   value: '1',
-  index: 'dashboardMahasiswa'
+  index: 'examplePageRole'
 }
 
 const all : accessProps[] = [
-  adminKeuangan,
-  mahasiswa
+  admin
 ]
 
 export {
-  adminKeuangan,
-  mahasiswa,
+  admin,
   all
 }
 export type { accessProps }

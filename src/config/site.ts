@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "NOXY UI",
+  name: "UBL APPS",
   url: "https://ui.shadcn.com",
   ogImage: "https://ui.shadcn.com/og.jpg",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Ubl",
   links: {
-    twitter: "https://twitter.com/mimamch",
-    github: "https://github.com/mimamch/noxy-ui",
+    // twitter: "https://twitter.com/mimamch",
+    // github: "https://github.com/mimamch/noxy-ui",
   },
 };
 
