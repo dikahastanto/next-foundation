@@ -21,7 +21,7 @@ import {
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { pushRoute } from "@/routes";
-import { all } from "@/helper/ListRole";
+import { accessProps, all } from "@/helper/ListRole";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 const formSchema = z.object({
@@ -36,23 +36,18 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
-
-    // setTimeout(() => {
-    //   router.push("/");
-    //   setIsLoading(false);
-    // }, 3000);
+    setIsLoading(true)
     try {
       const res = await apiToast.post('auth/sign-in', form.getValues())
       if (res.data.status) {
         Cookies.set('user', JSON.stringify(res.data.result), {expires: 24*60*60 /* 24 jam */})
-        const adaRole: any = all.find(r => r.value === res.data.result.id_level)
+        const adaRole: accessProps | undefined = all.find(r => r.value === res.data.result.id_level)
         if (adaRole) {
           router.push(pushRoute({name: adaRole.index}))
         }

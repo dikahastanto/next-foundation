@@ -25,3 +25,5 @@ export {
   mahasiswa,
   all
 }
+export type { accessProps }
+
